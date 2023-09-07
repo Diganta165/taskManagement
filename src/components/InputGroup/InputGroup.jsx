@@ -5,8 +5,13 @@ const InputGroup = ({inputFor, type, labelVal, val, handleInput}) => {
         <>
             <div className='flex flex-row gap-4'>
                 <label htmlFor={inputFor} >{labelVal}: </label>
-                <input type={type} placeholder = {`Enter your ` + inputFor} id={inputFor} name={inputFor} value={val}
+                <input 
+                    type={type} 
+                    placeholder = {inputFor !="confirmPassword" ? `Enter your ` + inputFor : "******"} 
+                    id={inputFor} name={inputFor} 
+                    value={val}
                     onChange={handleInput}
+                    onBlur={handleInput}
                     className='min-w-[220px] border-solid border-2 border-black'
                 />
             </div>
