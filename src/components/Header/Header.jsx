@@ -5,9 +5,9 @@ import InputGroup from "../InputGroup/InputGroup";
 import { element } from "prop-types";
 
 
-const Header = () => {
+const Header = ({projects, handleProjectsData, selectedProjectHandler}) => {
 
-    const [projects, setProjects] = useState([]);
+    // const [projects, setProjects] = useState([]);
 
     const [isPopup, setIsPopup] = useState(false);
     // ######
@@ -38,10 +38,11 @@ const Header = () => {
         console.log("[e.target.name]", [e.target.name])
         setIsPopup(prev => prev= !prev);
         if(!projectVal.project?.length) return;
-        setProjects(prev =>[
-            ...prev,
-            projectVal
-        ])
+        // setProjects(prev =>[
+        //     ...prev,
+        //     projectVal
+        // ])
+        handleProjectsData(projectVal);
         setProjectVal(prev =>({
             ...prev,
             project : ""
@@ -60,11 +61,11 @@ const Header = () => {
                 <nav className="flex flex-col h-full max-w-fit fixed p-8 border-solid border-2 border-r-black pt-24 ">
                     {/* <button>Add a project</button> */}
                     <Button type = "sideBar" content = "Add a project" clickHandler = {popupHandler} />
-                    <ul className="flex flex-col h-full">
+                    <ul className="flex flex-col h-full gap-4">
                         {
                             projects && projects?.length > 0 && projects.map((element, index) =>{
                                 return(
-                                    <li key={index} className="">{element.project}</li>
+                                    <li key={index} className="text-center p-2 rounded border-solid border-2 border-black" onClick ={()=> selectedProjectHandler(element.project)}>{element.project}</li>
                                 )
                             }) 
                         }

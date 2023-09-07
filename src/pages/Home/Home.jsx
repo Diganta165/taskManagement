@@ -15,9 +15,9 @@ const Home = () => {
         <>
             <div className='w-full h-[100vh] flex items-center justify-center'>
             {
-                // currentForm === "login"
+               // currentForm === "login"
                 // ? navigate("/login")
-                // : navigate("/register")
+                // : navigate("/register") 
             }
         
       </div>
