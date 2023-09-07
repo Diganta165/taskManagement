@@ -11,7 +11,7 @@ const InputGroup = ({inputFor, type, labelVal, val, handleInput}) => {
                     id={inputFor} name={inputFor} 
                     value={val}
                     onChange={handleInput}
-                    onBlur={handleInput}
+                    // onBlur={handleInput}
                     className='min-w-[220px] border-solid border-2 border-black'
                 />
             </div>

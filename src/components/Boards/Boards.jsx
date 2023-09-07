@@ -1,9 +1,10 @@
+import Header from "../Header/Header";
 
 
 const Boards = () => {
     return (
         <>
-            
+            <Header />
         </>
     );
 };
