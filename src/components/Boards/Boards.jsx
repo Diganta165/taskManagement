@@ -29,11 +29,20 @@ const Boards = () => {
 
     const updateProjectTasks = (projectName, taskData) =>{
         console.log("projectName", projectName)
-        const newProject = projects.map(element =>{
-            if(element.project === projectName) return {...element, tasks:[...element.tasks,taskData]}
-            return element;
+        // const newProject = projects.map(element =>{
+        //     if(element.project === projectName) return {...element, tasks:[...element.tasks,taskData]}
+        //     return element;
+        // })
+        // setProjects(prev => [...prev, newProject[0]]);
+        // setProjects([...newProject])
+
+        setProjects(prev=>{
+            const newProject = prev.map(element=>{
+                                if(element.project === projectName) return {...element, tasks:[...element.tasks,taskData]};
+                                return element;
+                            })
+                            return newProject;
         })
-        setProjects(prev => [...prev, newProject[0]]);
     };
 
     // useEffect(()=>{
@@ -46,7 +55,7 @@ const Boards = () => {
             <Header projects = {projects} handleProjectsData = {handleProjectsData} selectedProjectHandler ={selectedProjectHandler} />
             {
                 // console.log("selectedProject", selectedProject)
-                projects?.length > 0 && selectedProject?.project?.length > 0 && <ProjectTask selectedProject = {selectedProject}  updateProjectTasks = {updateProjectTasks} />
+                projects?.length > 0 && selectedProject?.project?.length > 0 && <ProjectTask projects={projects} selectedProject = {selectedProject}  updateProjectTasks = {updateProjectTasks} selectedProjectHandler ={selectedProjectHandler} />
             }
             {
                 console.log("projects", projects)

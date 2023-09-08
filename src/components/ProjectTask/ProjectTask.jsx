@@ -1,9 +1,10 @@
 import { useState } from "react";
 import InputGroup from "../InputGroup/InputGroup";
 import Button from "../Button/Button";
+import Tasks from "../Tasks/Tasks";
 
 
-const ProjectTask = ({selectedProject, updateProjectTasks}) => {
+const ProjectTask = ({projects, selectedProject, updateProjectTasks, selectedProjectHandler}) => {
 
     const [taskData, setTaskData] = useState({
         title:"",
@@ -89,6 +90,13 @@ const ProjectTask = ({selectedProject, updateProjectTasks}) => {
                     <button type ="submit">Submit</button>
                 </form>
 
+                
+                {
+                    // projects &&
+                    // projects?.find(element => element?.project === selectedProject.project).tasks.map(element => <)
+                }
+
+            <Tasks projects={projects} selectedProject = {selectedProject} selectedProjectHandler={selectedProjectHandler} />
             </div>
         </>
     );
